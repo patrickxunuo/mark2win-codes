@@ -1,0 +1,49 @@
+/*css selector*/
+/*css display*/
+/*flexbox*/
+* {
+    /*margin: 0;*/
+    box-sizing: border-box;
+}
+
+.btn {
+    font-size: 1em;
+    padding: 1em;
+    margin: 1em;
+    border: none;
+    border-radius: 5px;
+    width: 10em;
+    /*display: block;*/
+    /*display: none;*/
+    /*visibility: hidden;*/
+    /*display: inline-block;*/
+    /*display: flex;*/
+}
+
+.menuBtn {
+    color: white;
+    background: green;
+    filter: drop-shadow(1px 1px 3px red);
+}
+
+/*vim command*/
+/*  copy:5,14co. */
+/*  delete:5,14d  */
+/*  locate: 10  */
+p {
+    font-size: 1.5em;
+    background: red;
+    padding: 1em;
+    margin: 1em;
+    border: none;
+    color: white;
+    filter: drop-shadow(1px 1px 3px red);
+    border-radius: 5px;
+}
+
+.productBtn {
+    color: black;
+    background: grey;
+    filter: drop-shadow(1px 1px 3px black);
+}
+
