@@ -180,4 +180,7 @@ img[alt="explore"] {
     .port-wrap-horizontal, .port-wrap-vertical{
         margin-top: 10%;
     }
+    .project-img{
+        width: 16rem;
+    }
 }
