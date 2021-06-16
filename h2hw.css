@@ -177,4 +177,7 @@ img[alt="explore"] {
     .projects{
         flex-direction: column;
     }
+    .port-wrap-horizontal, .port-wrap-vertical{
+        margin-top: 10%;
+    }
 }
