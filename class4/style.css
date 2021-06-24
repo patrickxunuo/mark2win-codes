@@ -1,0 +1,57 @@
+/*pseudo property*/
+/*hover
+visited
+focus
+clicked*/
+* {
+    color: white;
+}
+.text {
+    font-family: 'Open Sans', sans-serif;
+}
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-card {
+    display: flex;
+    height: 300px;
+    width: 500px;
+    border: 4px solid #608094;
+    flex-direction: column;
+    background: #16394c;
+    border-radius: 10px;
+    justify-content: space-around;
+}
+
+.cube1 {
+    /*border: red solid 2px;*/
+}
+
+.cube2 {
+    /*border: blue dashed 1px;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.cube2-wide{
+    width: 30%;
+}
+.cube2-special{
+    align-items: start;
+    font-size: 12px;
+}
+.weather-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 5px;
+}
+.font-large {
+    font-size: 2em;
+}

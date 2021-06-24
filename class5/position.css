@@ -1,0 +1,46 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    width: 70%;
+    height: 70%;
+}
+#elt1{
+    border: 2px solid red;
+    width: 300px;
+    height: 200px;
+    position: relative;
+    top: 50px;
+    left: 50px;
+}
+
+#elt2{
+    border: 2px solid blue;
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#elt3{
+    border: 2px solid green;
+    width: 300px;
+    height: 200px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+#elt4{
+    border: 2px solid darkmagenta;
+    width: 300px;
+    height: 200px;
+}
+.block {
+    width: 100%;
+    height: 2000px;
+}
+/* media query: responsive design*/
