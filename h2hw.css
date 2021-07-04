@@ -7,10 +7,27 @@ body {
     margin: 0;
     height: 100vh;
     /*width: 100vw;*/
+    background: linear-gradient(-45deg, lightcyan, lightsteelblue, lightskyblue,lightseagreen);
+    background-size: 400% 400%;
+    animation: bganimation 7s ease infinite;
 }
-a{
+
+@keyframes bganimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+a {
     text-decoration: none;
 }
+
 header {
     top: 0;
     position: sticky;
@@ -18,7 +35,7 @@ header {
     display: flex;
     justify-content: flex-end;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.5);
+    background: transparent;
     z-index: 99;
 }
 
@@ -47,40 +64,48 @@ header {
     justify-content: space-evenly;
     transition: 0.5s ease-in-out;
 }
+
 .port-wrap-horizontal {
     flex-direction: row;
 }
+
 .port-wrap-vertical {
     flex-direction: column;
 }
-.blur, .explore{
-    height: clamp(150px, 30vw,200px);
+
+.blur, .explore {
+    height: clamp(150px, 30vw, 200px);
 }
+
 .blur {
     filter: blur(1px);
 }
-.port-wrap-horizontal:hover > .blur{
+
+.port-wrap-horizontal:hover > .blur {
     transition: 0.5s ease-in-out;
     filter: blur(0)
 }
 
 .text {
-    font-size: clamp(1.5em,4vw,3em);
+    font-size: clamp(1.5em, 4vw, 3em);
     font-weight: lighter;
     transition: 0.2s ease-in-out;
 }
 
-ul {
+header ul {
     list-style: none;
     text-align: center;
+    display: flex;
+    flex-direction:row;
+    transition: 0.5s ease-in-out;
 }
 
-li {
-    margin: 30px 10px;
+header ul li {
+    margin: 10px;
     display: inline;
 }
 
-li a {
+header ul li a {
     text-decoration: none;
     color: black;
 }
@@ -118,14 +143,16 @@ img[alt="explore"] {
 .port-wrap-horizontal:hover img[alt="explore"] {
     filter: grayscale(0%);
 }
-.projects{
+
+.projects {
     display: flex;
-    width:100%;
-    flex-direction:row;
+    width: 100%;
+    flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
 }
-.project-card{
+
+.project-card {
     background: steelblue;
     display: flex;
     flex-direction: column;
@@ -134,30 +161,82 @@ img[alt="explore"] {
     margin: 1em 1em;
     transition: 0.5s ease-in-out;
 }
+
 .project-card:hover {
     background: #1c3448;
 }
+
 .project-img {
     width: 20rem;
     margin: 0.5rem;
 }
-.project-des{
+
+.project-des {
     color: white;
     margin: 0.5em;
     font-size: 1.5em;
 }
+
 .code {
     font-weight: bold;
     color: white;
     opacity: 0;
     transition: 0.5s ease-in-out;
 }
-.project-card:hover .code{
+
+.project-card:hover .code {
     opacity: 1;
 }
+
 .button-scroll {
     cursor: default;
 }
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: cyan;
+}
+#hamburger-wrap{
+    display: none;
+    height: 50px;
+    width: 50px;
+    justify-content: center;
+    align-items: center;
+}
+.hamburger, .hamburger::before, .hamburger::after{
+    height: 2px;
+    width: 30px;
+    background: black;
+    position: relative;
+    transition: 0.5s ease-in-out;
+}
+
+.hamburger::before, .hamburger::after{
+    content: '';
+    position: absolute;
+    left: 0;
+}
+.hamburger::before{
+    top: 10px;
+}
+.hamburger::after{
+    top: -10px;
+}
+
+.active::after{
+    transform: rotate(45deg);
+    top: 0px;
+}
+
+.active::before{
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+
 /*.text-1{*/
 /*    width: 0;*/
 /*    visibility: hidden;*/
@@ -174,13 +253,47 @@ img[alt="explore"] {
     .port-wrap-horizontal {
         flex-direction: column;
     }
-    .projects{
+
+    .projects {
         flex-direction: column;
     }
-    .port-wrap-horizontal, .port-wrap-vertical{
+
+    .port-wrap-horizontal, .port-wrap-vertical {
         margin-top: 10%;
     }
-    .project-img{
+
+    .project-img {
         width: 16rem;
+    }
+    #hamburger-wrap{
+        display: flex;
+    }
+    header ul{
+        flex-direction: column;
+        position: absolute;
+        top: 30px;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    header ul li{
+        text-align: right;
+    }
+    header ul.active{
+        opacity: 1;
+        visibility: visible;
+    }
+    body{
+        background: white;
+        animation: none;
+    }
+    .sub-container {
+        scroll-snap-align: none;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .button-scroll{
+        display: none;
     }
 }
