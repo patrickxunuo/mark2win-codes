@@ -1,0 +1,89 @@
+body {
+  background: #16161a;
+}
+
+.title {
+  position: absolute;
+  top: 60px;
+  left: 80px;
+  color: #010101;
+  z-index: 99;
+  font-size: 5em;
+  font-family: "Source Code Pro", mono space;
+}
+
+.container {
+  inset: 50px;
+  background: #72757e;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+}
+.container input {
+  font-family: "Source Code Pro", mono space;
+  font-size: 15px;
+  color: #010101;
+  height: 2em;
+  padding: 5px;
+  outline: 0;
+  position: relative;
+  width: 400px;
+}
+.container button {
+  font-size: 20px;
+  font-family: "Source Code Pro", mono space;
+  border: 0;
+  outline: 0;
+  background: #16161a;
+  color: #fffffe;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+.container button:hover {
+  color: #7f5af0;
+}
+
+.loading::after, .loading::before, .loading {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #010101;
+}
+
+.loading {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-55%, -50%);
+  display: none;
+}
+.loading::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  animation: jumps 0.5s ease infinite;
+}
+.loading::after {
+  content: "";
+  position: absolute;
+  left: -15px;
+  animation: jumps 0.5s ease infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes jumps {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: -5px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

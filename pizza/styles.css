@@ -1,0 +1,206 @@
+@font-face {
+  font-family: "cornerstone";
+  src: url("assets/fonts/cornerstone.woff") format("woff");
+}
+header {
+  height: clamp(100px, 15vw, 150px);
+  background: orange;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.outlineEle {
+  margin: 5px 20px;
+  display: flex;
+  align-items: center;
+}
+.outlineEle img {
+  width: min(80%, 800px);
+}
+.outlineEle h1 {
+  font-size: clamp(20px, 4vw, 35px);
+}
+.outlineEle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+  opacity: 0;
+  /* hide this */
+  z-index: 2;
+  /* and place it over the hamburger */
+}
+.outlineEle input:checked ~ span {
+  background: transparent;
+}
+.outlineEle input:checked ~ span::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+.outlineEle input:checked ~ span::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+.outlineEle #nav_ham {
+  display: none;
+}
+.outlineEle .ham::after, .outlineEle .ham::before, .outlineEle .ham {
+  height: 3px;
+  width: 30px;
+  background: black;
+  position: relative;
+  transition: 0.5s ease-in-out;
+}
+.outlineEle .ham {
+  display: none;
+}
+.outlineEle .ham::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+}
+.outlineEle .ham::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  outline: 0;
+  border: 0;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: "cornerstone";
+  transition: all 0.2s ease;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+.btn__ok {
+  background: #0f9675;
+  color: #fff;
+  margin: 10px 0 0;
+}
+
+.container {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 4px;
+  max-width: 1000px;
+  margin: 0 auto 50px;
+}
+.container__content {
+  padding: 35px;
+  background: darkred;
+}
+.container__content__new {
+  margin: -35px -35px 35px -35px;
+  background: #f9f9f9;
+  padding: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container__content__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.container__content__list pizza-item {
+  background: #fff;
+  flex: 0 0 33.33%;
+  margin: 0 0 55px 0;
+  transition: all 0.2s ease;
+}
+.container__content__list pizza-item .pizza-item {
+  text-align: center;
+  margin: 0 10px;
+  padding: 20px 10px;
+  border-radius: 4px;
+  background: #f5f5f5;
+  transition: all 0.2s ease;
+}
+.container__content__list pizza-item .pizza-item:hover {
+  transform: scale(1.05);
+}
+.container__content__list pizza-item .pizza-item a {
+  color: black;
+}
+.container__content__list pizza-item .pizza-item pizza-display {
+  display: block;
+}
+.container__content__list pizza-item .pizza-item pizza-display .pizza-display__base {
+  position: relative;
+  text-align: center;
+}
+.container__content__list pizza-item .pizza-item h4 {
+  margin: 10px 0;
+  font-size: 20px;
+  font-weight: normal;
+  font-family: "cornerstone";
+}
+.container__nav {
+  background: #ab131b;
+  display: flex;
+  border-radius: 5px 5px 0 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.container__nav a {
+  color: #fff;
+  padding: 15px 35px;
+  font-family: "cornerstone";
+}
+.container__nav a.active {
+  background: #921217;
+}
+
+footer {
+  height: 25vh;
+  background: darkorchid;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 0 0 4px 4px;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+footer .footer_section {
+  width: 300px;
+  color: white;
+  margin: 30px;
+}
+
+@media only screen and (max-width: 910px) {
+  .outlineEle h1 {
+    display: none;
+  }
+  .outlineEle .ham {
+    display: block;
+  }
+
+  .container__content__list pizza-item {
+    margin: 0 10px 55px;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,248 @@
+@font-face {
+  font-family: "cornerstone";
+  src: url("assets/fonts/cornerstone.woff") format("woff");
+}
+
+$default_margin: 35px;
+$default_bc: #fff;
+$default_br: 4px;
+$cs_font: 'cornerstone';
+
+header {
+  height: clamp(100px, 15vw, 150px);
+  background: orange;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.outlineEle {
+  margin: 5px 20px;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: min(80%, 800px);
+  }
+
+  h1 {
+    font-size: clamp(20px, 4vw, 35px)
+  }
+
+  input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    right: 20px;
+
+    cursor: pointer;
+
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */
+    &:checked ~ span {
+      background: transparent;
+    }
+
+    &:checked ~ span::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+
+    &:checked ~ span::after {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+  }
+
+  #nav_ham {
+    display: none;
+  }
+
+  %ham-shared {
+    height: 3px;
+    width: 30px;
+    background: black;
+    position: relative;
+    transition: 0.5s ease-in-out;
+  }
+
+  .ham {
+    display: none;
+    @extend %ham-shared;
+
+    &::before {
+      @extend %ham-shared;
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+    }
+
+    &::after {
+      @extend %ham-shared;
+      content: '';
+      position: absolute;
+      left: 0;
+      top: -10px;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  outline: 0;
+  border: 0;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: $cs_font;
+  transition: all 0.2s ease;
+
+  &:hover{
+    transform: scale(1.05);
+  }
+  &__ok {
+    background: #0f9675;
+    color: $default_bc;
+    margin: 10px 0 0;
+  }
+}
+
+.container {
+  background: $default_bc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: $default_br;
+  max-width: 1000px;
+  margin: 0 auto 50px;
+  //align-items: center;
+  &__content {
+    padding: $default_margin;
+    background: darkred;
+
+    &__new {
+      margin: -35px -1*$default_margin $default_margin -35px;
+      background: #f9f9f9;
+      padding: 35px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      pizza-item {
+        background: $default_bc;
+        flex: 0 0 33.33%;
+        margin: 0 0 55px 0;
+        transition: all 0.2s ease;
+
+        .pizza-item {
+          text-align: center;
+          margin: 0 10px;
+          padding: 20px 10px;
+          border-radius: $default_br;
+          background: #f5f5f5;
+          transition: all 0.2s ease;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+
+          a {
+            color: black;
+          }
+
+          pizza-display {
+            display: block;
+
+            .pizza-display {
+              &__base {
+                position: relative;
+                text-align: center;
+              }
+            }
+          }
+
+          h4 {
+            margin: 10px 0;
+            font-size: 20px;
+            font-weight: normal;
+            font-family: $cs_font;
+          }
+        }
+      }
+    }
+  }
+
+  &__nav {
+    background: #ab131b;
+    display: flex;
+    border-radius: 5px 5px 0 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    a {
+      color: $default_bc;
+      padding: 15px $default_margin;
+      font-family: $cs_font;
+
+      &.active {
+        background: #921217;
+      }
+    }
+  }
+}
+
+footer {
+  height: 25vh;
+  background: darkorchid;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 0 0 $default_br $default_br;
+  color: $default_bc;
+  padding: 10px;
+  text-align: center;
+
+  .footer_section {
+    width: 300px;
+    color: white;
+    margin: 30px;
+  }
+}
+
+@media only screen and (max-width: 910px) {
+  .outlineEle {
+
+    h1 {
+      display: none;
+    }
+
+    .ham {
+      display: block;
+    }
+  }
+  .container {
+    &__content {
+      &__list {
+        pizza-item {
+          margin: 0 10px 55px;
+        }
+      }
+    }
+  }
+  footer{
+    flex-direction: column;
+  }
+}

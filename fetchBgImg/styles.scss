@@ -1,0 +1,101 @@
+$default_bg: #16161a;
+$default_secondary_bg: #72757e;
+$default_btn: #7f5af0;
+$default_btn_text: #fffffe;
+$default_stroke: #010101;
+$default_font: 'Source Code Pro', mono space;
+
+body {
+  background: $default_bg;
+}
+.title{
+  position: absolute;
+  top: 60px;
+  left: 80px;
+  color: $default_stroke;
+  z-index:99;
+  font-size: 5em;
+  font-family: $default_font;
+}
+.container {
+  inset: 50px;
+  background: $default_secondary_bg;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  //max-width: 1200px;
+
+  input {
+    font-family: $default_font;
+    font-size: 15px;
+    color: $default_stroke;
+    height: 2em;
+    padding: 5px;
+    outline: 0;
+    position: relative;
+    width: 400px;
+  }
+
+  button {
+    font-size: 20px;
+    font-family: $default_font;
+    border: 0;
+    outline: 0;
+    background: $default_bg;
+    color: $default_btn_text;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+
+    &:hover {
+      color: $default_btn;
+    }
+  }
+}
+
+%loading {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: $default_stroke;
+}
+
+.loading {
+  @extend %loading;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-55%, -50%);
+  display: none;
+
+  &::before {
+    @extend %loading;
+    content: '';
+    position: absolute;
+    left: 15px;
+    animation: jumps 0.5s ease infinite;
+  }
+
+  &::after {
+    @extend %loading;
+    content: '';
+    position: absolute;
+    left: -15px;
+    animation: jumps 0.5s ease infinite;
+    animation-delay: 0.25s;
+  }
+}
+
+@keyframes jumps {
+  0% {
+    top: 0
+  }
+  50% {
+    top: -5px
+  }
+  100% {
+    top: 0
+  }
+}

@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    line-height: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+button:focus{
+    outline: none;
+}
+.toggle-carousel{
+    margin: 10px;
+    color: #707070;
+}
+.fas{
+    cursor: pointer;
+}
+.btn-container {
+    border-top: 5px solid #5F5F5F;
+    display: flex;
+    width: 100%;
+    justify-content:center;
+    position: relative;
+}
+.toggle-carousel{
+    position: absolute;
+    left: 0;
+}
+.btnShowing {
+    color: #fff;
+    background: #5F5F5F;
+    font-weight: bold;
+}
+
+.btnNoShowing {
+    color: #5F5F5F;
+    background: #fff;
+}
