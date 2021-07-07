@@ -225,10 +225,12 @@ body{
 .hamburger::after{
     top: -10px;
 }
-
+.active{
+    background-color: transparent;
+}
 .active::after{
     transform: rotate(45deg);
-    top: 0px;
+    top: 0;
 }
 
 .active::before{
@@ -292,6 +294,7 @@ body{
         display: flex;
         align-items: center;
         flex-direction: column;
+        height: 120vh;
     }
     .button-scroll{
         display: none;
