@@ -1,27 +1,57 @@
-body {
-  background: #16161a;
+.container .title::before {
+  animation: fancy 8s steps(10) infinite;
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/paper-pattern.png);
+  content: "";
+  height: 300%;
+  left: -50%;
+  opacity: 0.2;
+  position: fixed;
+  top: -100%;
+  width: 300%;
 }
 
-.title {
-  position: absolute;
-  top: 60px;
-  left: 80px;
-  color: #010101;
-  z-index: 99;
-  font-size: 5em;
-  font-family: "Source Code Pro", mono space;
+body {
+  background-color: #16161a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  transition: all 1s ease-in-out;
 }
 
 .container {
-  inset: 50px;
+  width: 90%;
+  height: 90%;
+  max-width: 1200px;
   background: #72757e;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   background-size: cover;
+  transition: all 1s ease-in-out;
 }
-.container input {
+.container .title {
+  position: absolute;
+  bottom: 100px;
+  left: -20px;
+  color: #16161a;
+  font-size: clamp(50px, 15vw, 200px);
+  font-family: "Source Code Pro", mono space;
+  font-weight: bold;
+  transition: all 1s ease-in-out;
+  overflow: hidden;
+}
+.loading::after, .loading::before, .loading {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #010101;
+}
+
+input {
   font-family: "Source Code Pro", mono space;
   font-size: 15px;
   color: #010101;
@@ -29,9 +59,11 @@ body {
   padding: 5px;
   outline: 0;
   position: relative;
-  width: 400px;
+  width: min(400px, 50vw);
+  z-index: 99;
 }
-.container button {
+
+button {
   font-size: 20px;
   font-family: "Source Code Pro", mono space;
   border: 0;
@@ -41,16 +73,10 @@ body {
   padding: 0.5em 1em;
   cursor: pointer;
   transition: 0.5s ease-in-out;
+  z-index: 99;
 }
-.container button:hover {
+button:hover {
   color: #7f5af0;
-}
-
-.loading::after, .loading::before, .loading {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #010101;
 }
 
 .loading {
@@ -83,6 +109,38 @@ body {
   }
   100% {
     top: 0;
+  }
+}
+@keyframes fancy {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -10%);
+  }
+  20% {
+    transform: translate(-15%, 5%);
+  }
+  30% {
+    transform: translate(7%, -25%);
+  }
+  40% {
+    transform: translate(-5%, 25%);
+  }
+  50% {
+    transform: translate(-15%, 10%);
+  }
+  60% {
+    transform: translate(15%, 0%);
+  }
+  70% {
+    transform: translate(0%, 15%);
+  }
+  80% {
+    transform: translate(3%, 35%);
+  }
+  90% {
+    transform: translate(-10%, 10%);
   }
 }
 

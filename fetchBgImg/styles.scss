@@ -5,54 +5,59 @@ $default_btn_text: #fffffe;
 $default_stroke: #010101;
 $default_font: 'Source Code Pro', mono space;
 
+%fancyBg {
+  animation: fancy 8s steps(10) infinite;
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/paper-pattern.png);
+  content: "";
+  height: 300%;
+  left: -50%;
+  opacity: 0.2;
+  position: fixed;
+  top: -100%;
+  width: 300%;
+}
+
 body {
-  background: $default_bg;
+  background-color: $default_bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  transition: all 1s ease-in-out;
 }
-.title{
-  position: absolute;
-  top: 60px;
-  left: 80px;
-  color: $default_stroke;
-  z-index:99;
-  font-size: 5em;
-  font-family: $default_font;
-}
+
 .container {
-  inset: 50px;
+  width: 90%;
+  height: 90%;
+  max-width: 1200px;
   background: $default_secondary_bg;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   background-size: cover;
-  //max-width: 1200px;
+  transition: all 1s ease-in-out;
 
-  input {
+  .title {
+    position: absolute;
+    bottom: 100px;
+    left: -20px;
+    color: $default_bg;
+    //z-index: 99;
+    font-size: clamp(50px, 15vw, 200px);
     font-family: $default_font;
-    font-size: 15px;
-    color: $default_stroke;
-    height: 2em;
-    padding: 5px;
-    outline: 0;
-    position: relative;
-    width: 400px;
-  }
+    font-weight: bold;
+    transition: all 1s ease-in-out;
+    overflow: hidden;
 
-  button {
-    font-size: 20px;
-    font-family: $default_font;
-    border: 0;
-    outline: 0;
-    background: $default_bg;
-    color: $default_btn_text;
-    padding: 0.5em 1em;
-    cursor: pointer;
-    transition: 0.5s ease-in-out;
-
-    &:hover {
-      color: $default_btn;
+    &::before{
+      @extend %fancyBg;
     }
   }
+
+
 }
 
 %loading {
@@ -60,6 +65,35 @@ body {
   height: 5px;
   border-radius: 50%;
   background: $default_stroke;
+}
+
+input {
+  font-family: $default_font;
+  font-size: 15px;
+  color: $default_stroke;
+  height: 2em;
+  padding: 5px;
+  outline: 0;
+  position: relative;
+  width: min(400px, 50vw);
+  z-index: 99;
+}
+
+button {
+  font-size: 20px;
+  font-family: $default_font;
+  border: 0;
+  outline: 0;
+  background: $default_bg;
+  color: $default_btn_text;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+  z-index: 99;
+
+  &:hover {
+    color: $default_btn;
+  }
 }
 
 .loading {
@@ -99,3 +133,38 @@ body {
     top: 0
   }
 }
+
+@keyframes fancy{
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -10%);
+  }
+  20% {
+    transform: translate(-15%, 5%);
+  }
+  30% {
+    transform: translate(7%, -25%);
+  }
+  40% {
+    transform: translate(-5%, 25%);
+  }
+  50% {
+    transform: translate(-15%, 10%);
+  }
+  60% {
+    transform: translate(15%, 0%);
+  }
+  70% {
+    transform: translate(0%, 15%);
+  }
+  80% {
+    transform: translate(3%, 35%);
+  }
+  90% {
+    transform: translate(-10%, 10%);
+  }
+}
+
+
