@@ -25,6 +25,7 @@ body {
   margin: 0;
   height: 100vh;
   width: 100%;
+  overflow: hidden;
   transition: all 1s ease-in-out;
 }
 
@@ -52,11 +53,10 @@ body {
     transition: all 1s ease-in-out;
     overflow: hidden;
 
-    &::before{
+    &::before {
       @extend %fancyBg;
     }
   }
-
 
 }
 
@@ -94,6 +94,47 @@ button {
   &:hover {
     color: $default_btn;
   }
+}
+
+.ap-nostyle-input-icon {
+  display: none;
+}
+
+.ap-nostyle-dropdown-menu {
+  width: min(412px, 50vw);
+  border: none;
+  left: 1px !important;
+
+  &:last-child {
+    display: none;
+  }
+
+  .ap-nostyle-suggestion {
+    border-bottom: 1px solid black;
+    font-family: $default_font;
+    font-size: 15px;
+    height: 2em;
+    padding: 5px;
+    outline: 0;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+
+
+    &:nth-child(5) {
+      border: none;
+    }
+
+    &:hover, &:focus {
+      background: $default_secondary_bg;
+      color: $default_btn_text;
+    }
+
+
+  }
+
 }
 
 .loading {
@@ -134,7 +175,7 @@ button {
   }
 }
 
-@keyframes fancy{
+@keyframes fancy {
   0%, 100% {
     transform: translate(0, 0);
   }
@@ -167,4 +208,14 @@ button {
   }
 }
 
+.ap-footer {
+  display: none !important;
 
+  a {
+    display: none !important;
+
+    span {
+      display: none !important;
+    }
+  }
+}
